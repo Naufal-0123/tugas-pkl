@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "82468183110",
+    "project_id": "halaqoh-15f2e",
+    "storage_bucket": "halaqoh-15f2e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82468183110:android:42378c2d8ad5fb1fe17e47",
+        "android_client_info": {
+          "package_name": "halaqoh.halaqoh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82468183110-j592f3ick03psjqsfn6oaqvfsstoo7ff.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlU6xjdCPq2AzbFGr-Uk1ShvCBZh6qyMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82468183110-j592f3ick03psjqsfn6oaqvfsstoo7ff.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
