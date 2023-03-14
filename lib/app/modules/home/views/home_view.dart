@@ -16,7 +16,7 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: (Colors.teal[700]),
+        backgroundColor: (Colors.black87),
         elevation: 0,
         actions: [
           InkWell(
@@ -25,14 +25,14 @@ class HomeView extends GetView<HomeController> {
               padding: EdgeInsets.only(right: 25),
               child: Icon(
                 Icons.exit_to_app_outlined,
-                color: Colors.teal[400],
+                color: Colors.white,
               ),
             ),
           )
         ],
       ),
       body: Container(
-        decoration: BoxDecoration(color: Colors.teal[700]),
+        decoration: BoxDecoration(color: Colors.black87),
         child: FutureBuilder<QuerySnapshot<Object?>>(
             future: halaqohA.getData(),
             builder: (context, snapshot) {
@@ -46,7 +46,7 @@ class HomeView extends GetView<HomeController> {
                           title: Text(
                             (listData[index].data()
                                 as Map<String, dynamic>)['namaSantri'],
-                            style: TextStyle(color: Colors.teal[200]),
+                            style: TextStyle(color: Colors.white),
                           ),
                           subtitle: Text(
                             (listData[index].data()
@@ -55,19 +55,15 @@ class HomeView extends GetView<HomeController> {
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
-                                color: Colors.teal[200]),
+                                color: Colors.white),
                           ),
-                          // leading: Container(
-                          //   child: Image.network((listData[index].data()
-                          //       as Map<String, dynamic>)['gambarSlider']),
-                          // ),
                           trailing: IconButton(
                             onPressed: () {
                               halaqohA.deleteData((listData[index].id));
                             },
                             icon: Icon(
                               CupertinoIcons.trash,
-                              color: Colors.teal[400],
+                              color: Colors.redAccent,
                             ),
                           ),
                         ));

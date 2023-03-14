@@ -7,154 +7,360 @@ import 'package:halaqoh/app/controllers/halaqoh_controller_controller.dart';
 
 class UpdateHalaqohView extends GetView<UpdateHalaqohController> {
   final halaqohA = Get.put(HalaqohControllerController());
+  final updateC = Get.put(UpdateHalaqohController());
   final halaqohB = Get.put(HomeController());
   final data = Get.arguments;
   @override
   Widget build(BuildContext context) {
     double tinggi = MediaQuery.of(context).size.height;
     double lebar = MediaQuery.of(context).size.width;
-    return SafeArea(
-        child: Scaffold(
-      body: Container(
-        decoration: BoxDecoration(color: Colors.teal[700]),
-        child: SingleChildScrollView(
-          child: Container(
-            child: Column(
-              children: [
-                Container(
-                    width: lebar,
-                    height: 60,
-                    decoration: BoxDecoration(
-                        color: Colors.teal[400],
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(5),
-                            bottomRight: Radius.circular(5))),
-                    child: Center(
-                      child: Text(
-                        " Update Halaqoh ",
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.teal[700]),
-                      ),
-                    )),
-                Container(
-                    margin: EdgeInsets.only(top: 50),
-                    padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
-                    child: Column(
-                      children: [
-                        CustomInput(
-                            controller: controller.dariAyat,
-                            label: 'Dari Ayat',
-                            hint: 'Masukkan Ayat Surah',
-                            obscure: false),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        CustomInput(
-                            controller: controller.sampaiAyat,
-                            label: 'Sampai Ayat',
-                            hint: 'Masukkan Ayat Surah',
-                            obscure: false),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        CustomInput(
-                            controller: controller.dariSurat,
-                            label: 'Dari Surat',
-                            hint: 'Masukkan Nama Surah',
-                            obscure: false),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        CustomInput(
-                            controller: controller.sampaiSurat,
-                            label: 'Sampai Surat',
-                            hint: 'Masukkan Nama Surah',
-                            obscure: false),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        CustomInput(
-                            controller: controller.namaSantri,
-                            label: 'Nama Santri',
-                            hint: 'Masukkan Nama Santri',
-                            obscure: false),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        CustomInput(
-                            controller: controller.pengampuHalaqoh,
-                            label: 'Nama Pengampuh Halaqoh',
-                            hint: 'Masukkan Nama Pengampuh Halaqoh',
-                            obscure: false),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        CustomInput(
-                            controller: controller.tanggalHalaqoh,
-                            label: 'Tanggal Halaqoh',
-                            hint: 'Masukkan Tanggal Halaqoh',
-                            obscure: false),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        CustomInput(
-                            controller: controller.waktuHalaqoh,
-                            label: 'Waktu Halaqoh',
-                            hint: 'Masukkan Waktu Halaqoh',
-                            obscure: false),
-                      ],
-                    )),
-                Container(
-                  padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
-                  margin: EdgeInsets.only(top: 40),
-                  child: InkWell(
-                    onTap: () {
-                      halaqohA.updateHalaqoh(
-                          data?.id,
-                          int.parse(controller.dariAyat.text),
-                          int.parse(controller.sampaiAyat.text),
-                          controller.dariSurat.text,
-                          controller.sampaiSurat.text,
-                          controller.namaSantri.text,
-                          controller.pengampuHalaqoh.text,
-                          controller.tanggalHalaqoh.text,
-                          controller.waktuHalaqoh.text);
-
-                      // onTap: () => sliderC.updateData(listData[index].id,
-                      //     true, 'baru diupdate', 'mahiru mahiru mahiru'),
-                    },
-                    child: Container(
-                      width: lebar,
-                      height: 55,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(6),
-                          color: Colors.teal[400]),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Update Halaqoh',
+    return Obx(() => SafeArea(
+            child: Scaffold(
+          body: Container(
+            decoration: BoxDecoration(
+              color: Colors.black87,
+            ),
+            child: SingleChildScrollView(
+              child: Container(
+                child: Column(
+                  children: [
+                    Container(
+                        width: lebar,
+                        height: 60,
+                        decoration: BoxDecoration(
+                            color: Colors.black87,
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(5),
+                                bottomRight: Radius.circular(5))),
+                        child: Center(
+                          child: Text(
+                            updateC.judul.value,
                             style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.teal[700],
-                                fontWeight: FontWeight.w500),
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white),
                           ),
-                        ],
+                        )),
+                    Container(
+                        padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(
+                                  bottom: 10, top: 10, right: 330),
+                              child: Text(
+                                "Dari Ayat",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            ),
+                            TextFormField(
+                              controller: controller.dariAyat,
+                              style: TextStyle(color: Colors.white),
+                              cursorColor: Colors.white,
+                              keyboardType: TextInputType.emailAddress,
+                              // ignore: prefer_const_constructors
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
+                                labelText: "Masukkan Ayat Surah",
+                                labelStyle: TextStyle(color: Colors.white),
+                                border: OutlineInputBorder(),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(
+                                  bottom: 10, top: 10, right: 310),
+                              child: Text(
+                                "Sampai Ayat",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            ),
+                            TextFormField(
+                              controller: controller.sampaiAyat,
+                              style: TextStyle(color: Colors.white),
+                              cursorColor: Colors.white,
+                              keyboardType: TextInputType.emailAddress,
+                              // ignore: prefer_const_constructors
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
+                                labelText: "Masukkan Ayat Surah",
+                                labelStyle: TextStyle(color: Colors.white),
+                                border: OutlineInputBorder(),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(
+                                  bottom: 10, top: 10, right: 330),
+                              child: Text(
+                                "Dari Surat",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(left: 30, right: 30),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(5),
+                                  boxShadow: <BoxShadow>[]),
+                              child: DropdownButton(
+                                items: updateC.halaqoh.map((String value) {
+                                  return DropdownMenuItem(
+                                    value: value,
+                                    child: Text(value),
+                                  );
+                                }).toList(),
+                                onChanged: (value) {
+                                  updateC.change(value);
+                                  print(value);
+                                },
+                                value: updateC.surat.value == ""
+                                    ? null
+                                    : updateC.surat.value,
+                                hint: Text("Dari Surat"),
+                                isExpanded: true,
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.black),
+                                dropdownColor: Colors.white,
+                                iconEnabledColor: Colors.white,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(
+                                  bottom: 10, top: 10, right: 300),
+                              child: Text(
+                                "Sampai Surat",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(left: 30, right: 30),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(5),
+                                  boxShadow: <BoxShadow>[]),
+                              child: DropdownButton(
+                                items: updateC.halaqoh2.map((String value) {
+                                  return DropdownMenuItem(
+                                    value: value,
+                                    child: Text(value),
+                                  );
+                                }).toList(),
+                                onChanged: (value) {
+                                  updateC.change1(value);
+                                  print(value);
+                                },
+                                value: updateC.surat2.value == ""
+                                    ? null
+                                    : updateC.surat2.value,
+                                hint: Text("Sampai Surat"),
+                                isExpanded: true,
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.black),
+                                dropdownColor: Colors.white,
+                                iconEnabledColor: Colors.white,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(
+                                  bottom: 10, top: 10, right: 310),
+                              child: Text(
+                                "Nama Santri",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            ),
+                            TextFormField(
+                              controller: controller.namaSantri,
+                              style: TextStyle(color: Colors.white),
+                              cursorColor: Colors.white,
+                              keyboardType: TextInputType.emailAddress,
+                              // ignore: prefer_const_constructors
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
+                                labelText: "Masukkan Nama Santri",
+                                labelStyle: TextStyle(color: Colors.white),
+                                border: OutlineInputBorder(),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(
+                                  bottom: 10, top: 10, right: 180),
+                              child: Text(
+                                "Nama Pengampuh Halaqoh",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            ),
+                            TextFormField(
+                              controller: controller.pengampuHalaqoh,
+                              style: TextStyle(color: Colors.white),
+                              cursorColor: Colors.white,
+                              keyboardType: TextInputType.emailAddress,
+                              // ignore: prefer_const_constructors
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
+                                labelText: "Masukkan Nama Pengampuh Halaqoh",
+                                labelStyle: TextStyle(color: Colors.white),
+                                border: OutlineInputBorder(),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(
+                                  bottom: 10, top: 10, right: 270),
+                              child: Text(
+                                "Tanggal Halaqoh",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            ),
+                            TextFormField(
+                              controller: controller.tanggalHalaqoh,
+                              style: TextStyle(color: Colors.white),
+                              cursorColor: Colors.white,
+                              keyboardType: TextInputType.emailAddress,
+                              // ignore: prefer_const_constructors
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
+                                labelText: "Masukkan Tanggal Halaqoh",
+                                labelStyle: TextStyle(color: Colors.white),
+                                border: OutlineInputBorder(),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(
+                                  bottom: 10, top: 10, right: 290),
+                              child: Text(
+                                "Waktu Halaqoh",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(left: 30, right: 30),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(5),
+                                  boxShadow: <BoxShadow>[]),
+                              child: DropdownButton(
+                                items: updateC.jam.map((String value) {
+                                  return DropdownMenuItem(
+                                    value: value,
+                                    child: Text(value),
+                                  );
+                                }).toList(),
+                                onChanged: (value) {
+                                  updateC.change2(value);
+                                  print(value);
+                                },
+                                value: updateC.waktu.value == ""
+                                    ? null
+                                    : updateC.waktu.value,
+                                hint: Text("Waktu Halaqoh"),
+                                isExpanded: true,
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.black),
+                                dropdownColor: Colors.white,
+                                iconEnabledColor: Colors.white,
+                              ),
+                            ),
+                          ],
+                        )),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
+                      margin: EdgeInsets.only(top: 40),
+                      child: InkWell(
+                        onTap: () {
+                          halaqohA.updateHalaqoh(
+                              data?.id,
+                              int.parse(controller.dariAyat.text),
+                              int.parse(controller.sampaiAyat.text),
+                              controller.dariSurat.text,
+                              controller.sampaiSurat.text,
+                              controller.namaSantri.text,
+                              controller.pengampuHalaqoh.text,
+                              controller.tanggalHalaqoh.text,
+                              controller.waktuHalaqoh.text);
+                        },
+                        child: Container(
+                          width: lebar,
+                          height: 55,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(6),
+                              color: Colors.white),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Update Halaqoh',
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-              ],
+              ),
             ),
           ),
-        ),
-      ),
-    ));
+        )));
   }
 }
 
