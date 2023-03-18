@@ -1,5 +1,6 @@
 import 'dart:ffi';
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:halaqoh/app/routes/app_pages.dart';
@@ -42,8 +43,15 @@ class HalaqohControllerController extends GetxController {
       DocumentReference Halaqoh = firestore.collection('Halaqoh').doc(id);
       await Halaqoh.update(halaqohData);
 
-      Get.defaultDialog(title: 'Alert', middleText: 'berhasil mengupdate data');
       Get.offNamed(Routes.HOME);
+      Get.defaultDialog(
+        title: 'Alert',
+        middleText: 'berhasil mengupdate data',
+        backgroundColor: Colors.black87,
+        titleStyle: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        middleTextStyle:
+            TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+      );
     } catch (e) {
       Get.defaultDialog(title: 'Alert', middleText: 'gagal mengupdate data');
       print(e);
@@ -74,9 +82,16 @@ class HalaqohControllerController extends GetxController {
     try {
       await Halaqoh.add(halaqohData).then((DocumentReference doc) {
         print('DocumentSnapshot added with ID: ${doc.id}');
-        Get.defaultDialog(
-            title: 'Alert', middleText: 'berhasil menambahkan data');
         Get.offNamed(Routes.HOME);
+        Get.defaultDialog(
+          title: 'Alert',
+          middleText: 'berhasil menambahkan data',
+          backgroundColor: Colors.black87,
+          titleStyle:
+              TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          middleTextStyle:
+              TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        );
       });
     } catch (e) {
       Get.defaultDialog(title: 'Alert', middleText: 'gagal menambahkan data');
@@ -87,8 +102,15 @@ class HalaqohControllerController extends GetxController {
     try {
       DocumentReference Halaqoh = firestore.collection('Halaqoh').doc(id);
       await Halaqoh.delete();
-      Get.defaultDialog(title: 'Alert', middleText: 'berhasil mendelete data');
-      return Get.offAllNamed(Routes.HOME);
+      Get.offAllNamed(Routes.HOME);
+      Get.defaultDialog(
+        title: 'Alert',
+        middleText: 'berhasil mendelete data',
+        backgroundColor: Colors.black87,
+        titleStyle: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        middleTextStyle:
+            TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+      );
     } catch (e) {
       Get.defaultDialog(title: 'Alert', middleText: 'gagal mendelete data');
       print(e);

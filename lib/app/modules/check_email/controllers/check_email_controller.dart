@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class VeifyController extends GetxController {
-  //TODO: Implement VeifyController
+class CheckEmailController extends GetxController {
+  //TODO: Implement CheckEmailController
 
   final count = 0.obs;
   @override

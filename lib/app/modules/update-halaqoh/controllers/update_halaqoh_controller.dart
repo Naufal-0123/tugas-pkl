@@ -8,12 +8,12 @@ class UpdateHalaqohController extends GetxController {
 
   TextEditingController dariAyat = TextEditingController();
   TextEditingController sampaiAyat = TextEditingController();
-  TextEditingController dariSurat = TextEditingController();
-  TextEditingController sampaiSurat = TextEditingController();
+  // TextEditingController dariSurat = TextEditingController();
+  // TextEditingController sampaiSurat = TextEditingController();
   TextEditingController namaSantri = TextEditingController();
   TextEditingController pengampuHalaqoh = TextEditingController();
   TextEditingController tanggalHalaqoh = TextEditingController();
-  TextEditingController waktuHalaqoh = TextEditingController();
+  // TextEditingController waktuHalaqoh = TextEditingController();
 
   RxString surat = "".obs;
   RxString surat2 = "".obs;

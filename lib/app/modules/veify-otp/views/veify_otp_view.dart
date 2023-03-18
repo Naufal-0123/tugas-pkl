@@ -16,86 +16,88 @@ class VeifyOTPView extends GetView<VeifyOtpController> {
       width: 50,
       height: 50,
       textStyle: TextStyle(
-          fontSize: 20, color: Colors.teal[400], fontWeight: FontWeight.w600),
+          fontSize: 20, color: Colors.black, fontWeight: FontWeight.w600),
       decoration: BoxDecoration(
-        border: Border.all(color: Color.fromARGB(255, 107, 165, 212)),
+        border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.circular(20),
       ),
     );
 
     final focusedPinTheme = defaultPinTheme.copyDecorationWith(
-      border: Border.all(color: Color.fromARGB(255, 107, 165, 212)),
+      border: Border.all(color: Colors.white),
       borderRadius: BorderRadius.circular(8),
     );
 
     final submittedPinTheme = defaultPinTheme.copyWith(
       decoration: defaultPinTheme.decoration?.copyWith(
-        color: Colors.teal[400],
+        color: Colors.white,
       ),
     );
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(color: Colors.teal[700]),
-        child: Container(
-            padding: EdgeInsets.fromLTRB(30, 60, 30, 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  height: tinggi * 0.87,
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            "Verification",
-                            style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.teal[200]),
-                          )
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            width: 300,
-                            margin: EdgeInsets.only(top: 10),
-                            child: Text(
-                              "OTP Code Has been succesfully sent on this phone number +62",
-                              style: TextStyle(color: Colors.teal[200]),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 50),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+        height: tinggi,
+        decoration: BoxDecoration(color: Colors.black87),
+        child: SingleChildScrollView(
+          child: Container(
+              padding: EdgeInsets.fromLTRB(30, 60, 30, 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: tinggi * 0.87,
+                    child: Column(
+                      children: [
+                        Row(
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.all(30.0),
-                              child: Pinput(
-                                onSubmitted: (pin) => authA.checkOTP(pin),
-                                length: 6,
-                                defaultPinTheme: defaultPinTheme,
-                                focusedPinTheme: focusedPinTheme,
-                                submittedPinTheme: submittedPinTheme,
-                                pinputAutovalidateMode:
-                                    PinputAutovalidateMode.onSubmit,
-                                showCursor: true,
-                                // ignore: avoid_print
-                                onCompleted: (pin) => {},
-                              ),
+                            Text(
+                              "Verification",
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
                             )
                           ],
                         ),
-                      ),
-                    ],
+                        Row(
+                          children: [
+                            Container(
+                              width: 300,
+                              margin: EdgeInsets.only(top: 10),
+                              child: Text(
+                                "OTP Code Has been succesfully sent on this phone number +62",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 50),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(30.0),
+                                child: Pinput(
+                                  onSubmitted: (pin) => authA.checkOTP(pin),
+                                  length: 6,
+                                  defaultPinTheme: defaultPinTheme,
+                                  focusedPinTheme: focusedPinTheme,
+                                  submittedPinTheme: submittedPinTheme,
+                                  pinputAutovalidateMode:
+                                      PinputAutovalidateMode.onSubmit,
+                                  showCursor: true,
+                                  onCompleted: (pin) => {},
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            )),
+                ],
+              )),
+        ),
       ),
     );
   }

@@ -14,7 +14,8 @@ class PhoneView extends GetView<PhoneController> {
     double lebar = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(color: Colors.teal[700]),
+        height: tinggi,
+        decoration: BoxDecoration(color: Colors.black87),
         child: SingleChildScrollView(
           child: Container(
             width: lebar,
@@ -27,17 +28,6 @@ class PhoneView extends GetView<PhoneController> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // InkWell(
-                      //   onTap: () => Get.toNamed(Routes.LOGIN),
-                      //   child: Container(
-                      //       margin: EdgeInsets.only(bottom: 20),
-                      //       // color: Colors.black,
-                      //       child: Icon(
-                      //         Icons.arrow_back,
-                      //         color: Colors.black,
-                      //         size: 30,
-                      //       )),
-                      // ),
                       Container(
                         margin: EdgeInsets.only(bottom: 20),
                         child: Text(
@@ -45,15 +35,14 @@ class PhoneView extends GetView<PhoneController> {
                           style: TextStyle(
                               fontSize: 35,
                               fontWeight: FontWeight.bold,
-                              color: Colors.teal[200]),
+                              color: Colors.white),
                         ),
                       ),
                       Container(
                         margin: EdgeInsets.only(bottom: 20),
                         child: Text(
-                          "Enter the email associated with your account and we'll send an email with instructions to reset your password",
-                          style:
-                              TextStyle(fontSize: 18, color: Colors.teal[200]),
+                          "Please enter your telephone number to login to the next page",
+                          style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ),
                       Container(
@@ -63,20 +52,19 @@ class PhoneView extends GetView<PhoneController> {
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.teal[400]),
+                              color: Colors.white),
                         ),
                       ),
                       TextFormField(
-                        style: TextStyle(color: Colors.black),
-                        cursorColor: Colors.black,
+                        style: TextStyle(color: Colors.white),
+                        cursorColor: Colors.white,
                         keyboardType: TextInputType.emailAddress,
                         controller: controller.phone,
-                        // ignore: prefer_const_constructors
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
+                              borderSide: BorderSide(color: Colors.white)),
                           labelText: "Enter Your mobile",
-                          labelStyle: TextStyle(color: Colors.teal[200]),
+                          labelStyle: TextStyle(color: Colors.white),
                           prefixIcon: Container(
                             width: lebar * 0.13,
                             child: Row(
@@ -85,14 +73,13 @@ class PhoneView extends GetView<PhoneController> {
                                   margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
                                   child: Text("+62",
                                       style: TextStyle(
-                                          fontSize: 17,
-                                          color: Colors.teal[200])),
+                                          fontSize: 17, color: Colors.white)),
                                 ),
                                 Container(
                                   margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
                                   height: tinggi * 0.04,
                                   child: VerticalDivider(
-                                    color: Colors.teal[200],
+                                    color: Colors.white,
                                     width: 2,
                                   ),
                                 )
@@ -111,7 +98,7 @@ class PhoneView extends GetView<PhoneController> {
                           height: tinggi * 0.07,
                           width: lebar * 1.0,
                           decoration: BoxDecoration(
-                              color: Colors.teal[400],
+                              color: Colors.white,
                               borderRadius: BorderRadius.circular(6)),
                           child: Center(
                             child: Text(
@@ -119,7 +106,7 @@ class PhoneView extends GetView<PhoneController> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 20,
-                                  color: Colors.teal[700],
+                                  color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),

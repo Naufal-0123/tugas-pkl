@@ -74,9 +74,14 @@ class HomeView extends GetView<HomeController> {
               }
             }),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+        heroTag: 'uniqueTag',
+        label: Row(
+          children: [Icon(Icons.add), Text('Create')],
+        ),
         onPressed: () => Get.toNamed(Routes.CREATE_HALAQOH),
-        child: Icon(Icons.add),
       ),
     );
   }

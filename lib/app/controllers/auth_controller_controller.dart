@@ -13,6 +13,15 @@ class AuthControllerController extends GetxController {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: emailAddress, password: password);
       Get.offAllNamed(Routes.HOME);
+      Get.defaultDialog(
+          title: 'Alert',
+          middleText: 'Anda Berhasil Login',
+          middleTextStyle:
+              TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          barrierDismissible: true,
+          backgroundColor: Colors.black87,
+          titleStyle:
+              TextStyle(fontWeight: FontWeight.bold, color: Colors.white));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         Get.defaultDialog(
@@ -28,6 +37,10 @@ class AuthControllerController extends GetxController {
     Get.defaultDialog(
         title: "Are You Sure!",
         middleText: "logout this application ?",
+        backgroundColor: Colors.black87,
+        titleStyle: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        middleTextStyle:
+            TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         confirm: ElevatedButton(
             onPressed: () async {
               await FirebaseAuth.instance.signOut();
@@ -47,6 +60,14 @@ class AuthControllerController extends GetxController {
               email: emailAddress, password: password);
       credential.user?.sendEmailVerification();
       Get.offAllNamed(Routes.LOGIN);
+      Get.defaultDialog(
+        title: 'Alert',
+        middleText: 'Anda Berhasil Register',
+        backgroundColor: Colors.black87,
+        titleStyle: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        middleTextStyle:
+            TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+      );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         Get.defaultDialog(
@@ -72,7 +93,6 @@ class AuthControllerController extends GetxController {
       idToken: googleAuth?.idToken,
     );
     Get.offAllNamed(Routes.HOME);
-    // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
@@ -110,6 +130,15 @@ class AuthControllerController extends GetxController {
     } catch (e) {
       Get.defaultDialog(
           title: "Alert", middleText: "kode verifikasi anda salah ");
+    }
+  }
+
+  resetPassword(String emailAddress) async {
+    try {
+      final Credential = await auth.sendPasswordResetEmail(email: emailAddress);
+      Get.toNamed(Routes.CHECK_EMAIL);
+    } on FirebaseAuthException catch (e) {
+      Get.defaultDialog(title: 'Alert', middleText: 'gagal merubah kata sandi');
     }
   }
 

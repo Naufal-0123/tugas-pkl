@@ -15,7 +15,8 @@ class RegisterView extends GetView<RegisterController> {
     double lebar = MediaQuery.of(context).size.width;
     return Obx(() => Scaffold(
           body: Container(
-            decoration: BoxDecoration(color: Colors.teal[700]),
+            height: tinggi,
+            decoration: BoxDecoration(color: Colors.black87),
             child: SingleChildScrollView(
               child: Container(
                 width: lebar,
@@ -59,20 +60,20 @@ class RegisterView extends GetView<RegisterController> {
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.teal[400]),
+                                  color: Colors.white),
                             ),
                           ),
                           TextFormField(
                             controller: controller.email,
-                            style: TextStyle(color: Colors.black),
-                            cursorColor: Colors.black,
+                            style: TextStyle(color: Colors.white),
+                            cursorColor: Colors.white,
                             keyboardType: TextInputType.emailAddress,
                             // ignore: prefer_const_constructors
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.black)),
+                                  borderSide: BorderSide(color: Colors.white)),
                               labelText: "Enter Your email",
-                              labelStyle: TextStyle(color: Colors.teal[200]),
+                              labelStyle: TextStyle(color: Colors.white),
                               border: OutlineInputBorder(),
                             ),
                           ),
@@ -83,22 +84,21 @@ class RegisterView extends GetView<RegisterController> {
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.teal[400]),
+                                  color: Colors.white),
                             ),
                           ),
                           TextFormField(
                               controller: controller.password,
-                              style: TextStyle(color: Colors.black),
-                              cursorColor: Colors.black,
+                              style: TextStyle(color: Colors.white),
+                              cursorColor: Colors.white,
                               obscureText:
                                   controller.showhidepw.value ? false : true,
                               decoration: InputDecoration(
                                   enabledBorder: OutlineInputBorder(
                                       borderSide:
-                                          BorderSide(color: Colors.black)),
+                                          BorderSide(color: Colors.white)),
                                   labelText: "Enter Your Password",
-                                  labelStyle:
-                                      TextStyle(color: Colors.teal[200]),
+                                  labelStyle: TextStyle(color: Colors.white),
                                   border: OutlineInputBorder(),
                                   suffixIcon: IconButton(
                                       onPressed: () => controller.changeEye(),
@@ -106,53 +106,8 @@ class RegisterView extends GetView<RegisterController> {
                                         controller.showhidepw.value
                                             ? Icons.visibility
                                             : Icons.visibility_off,
-                                        color: Colors.teal[200],
+                                        color: Colors.redAccent,
                                       )))),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 20, top: 20),
-                            child: Text(
-                              "Mobile Number",
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.teal[400]),
-                            ),
-                          ),
-                          TextFormField(
-                            style: TextStyle(color: Colors.black),
-                            cursorColor: Colors.black,
-                            keyboardType: TextInputType.emailAddress,
-                            // ignore: prefer_const_constructors
-                            decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.black)),
-                              labelText: "Enter Your mobile",
-                              labelStyle: TextStyle(color: Colors.teal[200]),
-                              prefixIcon: Container(
-                                width: lebar * 0.13,
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
-                                      child: Text("+62",
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              color: Colors.teal[200])),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
-                                      height: tinggi * 0.04,
-                                      child: VerticalDivider(
-                                        color: Colors.teal[200],
-                                        width: 2,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              border: OutlineInputBorder(),
-                            ),
-                          ),
                           SizedBox(
                             height: 25,
                           ),
@@ -163,7 +118,7 @@ class RegisterView extends GetView<RegisterController> {
                               height: tinggi * 0.07,
                               width: lebar * 1.0,
                               decoration: BoxDecoration(
-                                color: Colors.teal[400],
+                                color: Colors.white,
                                 borderRadius: BorderRadius.circular(6),
                               ),
                               child: Center(
@@ -172,7 +127,7 @@ class RegisterView extends GetView<RegisterController> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 20,
-                                      color: Colors.teal[700],
+                                      color: Colors.black,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),
@@ -187,7 +142,7 @@ class RegisterView extends GetView<RegisterController> {
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.3,
                                 child: Divider(
-                                  color: Colors.teal[200],
+                                  color: Colors.white,
                                   height: 1,
                                 ),
                               ),
@@ -195,13 +150,13 @@ class RegisterView extends GetView<RegisterController> {
                                 child: Text(
                                   "Or Register With",
                                   style: TextStyle(
-                                      color: Colors.teal[200], fontSize: 15),
+                                      color: Colors.white, fontSize: 15),
                                 ),
                               ),
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.3,
                                 child: Divider(
-                                  color: Colors.teal[200],
+                                  color: Colors.white,
                                   height: 1,
                                 ),
                               ),
@@ -219,7 +174,7 @@ class RegisterView extends GetView<RegisterController> {
                                   width: 170,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                      primary: Colors.teal[700],
+                                      primary: Colors.white,
                                     ),
                                     onPressed: () => authC.signInWithGoogle(),
                                     child: Row(
@@ -231,7 +186,7 @@ class RegisterView extends GetView<RegisterController> {
                                             "Google",
                                             style: TextStyle(
                                                 fontSize: 20,
-                                                color: Colors.teal[200]),
+                                                color: Colors.black),
                                           ),
                                         )
                                       ],
@@ -243,21 +198,20 @@ class RegisterView extends GetView<RegisterController> {
                                   width: 170,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                      primary: Colors.teal[700],
+                                      primary: Colors.white,
                                     ),
                                     onPressed: () =>
                                         Get.offAllNamed(Routes.PHONE),
                                     child: Row(
                                       children: [
-                                        Icon(Icons.phone,
-                                            color: Colors.teal[200]),
+                                        Icon(Icons.phone, color: Colors.black),
                                         Container(
                                           margin: EdgeInsets.only(left: 35),
                                           child: Text(
                                             "Phone",
                                             style: TextStyle(
                                                 fontSize: 20,
-                                                color: Colors.teal[200]),
+                                                color: Colors.black),
                                           ),
                                         )
                                       ],
@@ -277,14 +231,16 @@ class RegisterView extends GetView<RegisterController> {
                             onPressed: () {},
                             child: Text(
                               "Have an account?",
-                              style: TextStyle(color: Colors.teal[400]),
+                              style: TextStyle(color: Colors.redAccent),
                             )),
                         TextButton(
                             onPressed: () => Get.toNamed("login"),
                             child: Text(
                               "Login",
                               style: TextStyle(
-                                  color: Colors.teal[200], fontSize: 13),
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 13),
                             ))
                       ],
                     )

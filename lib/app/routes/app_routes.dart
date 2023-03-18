@@ -14,6 +14,7 @@ abstract class Routes {
   static const UPDATE_HALAQOH = _Paths.UPDATE_HALAQOH;
   static const CREATE_HALAQOH = _Paths.CREATE_HALAQOH;
   static const PHONE = _Paths.PHONE;
+  static const CHECK_EMAIL = _Paths.CHECK_EMAIL;
 }
 
 abstract class _Paths {
@@ -27,4 +28,5 @@ abstract class _Paths {
   static const UPDATE_HALAQOH = '/update-halaqoh';
   static const CREATE_HALAQOH = '/create-halaqoh';
   static const PHONE = '/phone';
+  static const CHECK_EMAIL = '/check-email';
 }

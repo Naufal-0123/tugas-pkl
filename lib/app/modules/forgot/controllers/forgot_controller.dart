@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ForgotController extends GetxController {
-  //TODO: Implement ForgotController
+  TextEditingController email = TextEditingController();
 
   final count = 0.obs;
   @override

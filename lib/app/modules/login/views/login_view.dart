@@ -15,7 +15,8 @@ class LoginView extends GetView<LoginController> {
     double lebar = MediaQuery.of(context).size.width;
     return Obx(() => Scaffold(
           body: Container(
-            decoration: BoxDecoration(color: Colors.teal[700]),
+            height: tinggi,
+            decoration: BoxDecoration(color: Colors.black87),
             child: SingleChildScrollView(
               child: Container(
                 width: lebar,
@@ -59,20 +60,20 @@ class LoginView extends GetView<LoginController> {
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.teal[400]),
+                                  color: Colors.white),
                             ),
                           ),
                           TextFormField(
                             controller: controller.email,
-                            style: TextStyle(color: Colors.black),
-                            cursorColor: Colors.black,
+                            style: TextStyle(color: Colors.white),
+                            cursorColor: Colors.white,
                             keyboardType: TextInputType.emailAddress,
                             // ignore: prefer_const_constructors
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.black)),
+                                  borderSide: BorderSide(color: Colors.white)),
                               labelText: "Enter Your email",
-                              labelStyle: TextStyle(color: Colors.teal[200]),
+                              labelStyle: TextStyle(color: Colors.white),
                               border: OutlineInputBorder(),
                             ),
                           ),
@@ -83,22 +84,21 @@ class LoginView extends GetView<LoginController> {
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.teal[400]),
+                                  color: Colors.white),
                             ),
                           ),
                           TextFormField(
                               controller: controller.password,
-                              style: TextStyle(color: Colors.black),
-                              cursorColor: Colors.black,
+                              style: TextStyle(color: Colors.white),
+                              cursorColor: Colors.white,
                               obscureText:
                                   controller.showhidepw.value ? false : true,
                               decoration: InputDecoration(
                                   enabledBorder: OutlineInputBorder(
                                       borderSide:
-                                          BorderSide(color: Colors.black)),
+                                          BorderSide(color: Colors.white)),
                                   labelText: "Enter Your Password",
-                                  labelStyle:
-                                      TextStyle(color: Colors.teal[200]),
+                                  labelStyle: TextStyle(color: Colors.white),
                                   border: OutlineInputBorder(),
                                   suffixIcon: IconButton(
                                       onPressed: () => controller.changeEye(),
@@ -106,7 +106,7 @@ class LoginView extends GetView<LoginController> {
                                         controller.showhidepw.value
                                             ? Icons.visibility
                                             : Icons.visibility_off,
-                                        color: Colors.teal[200],
+                                        color: Colors.redAccent,
                                       )))),
                           SizedBox(
                             height: 15,
@@ -119,7 +119,7 @@ class LoginView extends GetView<LoginController> {
                                   child: Text(
                                     "Forgot Password ?",
                                     style: TextStyle(
-                                        color: Colors.teal[300], fontSize: 17),
+                                        color: Colors.redAccent, fontSize: 17),
                                   ))
                             ],
                           ),
@@ -133,7 +133,7 @@ class LoginView extends GetView<LoginController> {
                               height: tinggi * 0.07,
                               width: lebar * 1.0,
                               decoration: BoxDecoration(
-                                color: Colors.teal[400],
+                                color: Colors.white,
                                 borderRadius: BorderRadius.circular(6),
                               ),
                               child: Center(
@@ -142,7 +142,7 @@ class LoginView extends GetView<LoginController> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 20,
-                                      color: Colors.teal[700],
+                                      color: Colors.black,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),
@@ -157,7 +157,7 @@ class LoginView extends GetView<LoginController> {
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.3,
                                 child: Divider(
-                                  color: Colors.teal[200],
+                                  color: Colors.white,
                                   height: 1,
                                 ),
                               ),
@@ -165,13 +165,13 @@ class LoginView extends GetView<LoginController> {
                                 child: Text(
                                   "Or Login With",
                                   style: TextStyle(
-                                      color: Colors.teal[200], fontSize: 15),
+                                      color: Colors.white, fontSize: 15),
                                 ),
                               ),
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.3,
                                 child: Divider(
-                                  color: Colors.teal[200],
+                                  color: Colors.white,
                                   height: 1,
                                 ),
                               ),
@@ -189,7 +189,7 @@ class LoginView extends GetView<LoginController> {
                                   width: 170,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                      primary: Colors.teal[700],
+                                      primary: Colors.white,
                                     ),
                                     onPressed: () => authC.signInWithGoogle(),
                                     child: Row(
@@ -201,7 +201,8 @@ class LoginView extends GetView<LoginController> {
                                             "Google",
                                             style: TextStyle(
                                                 fontSize: 20,
-                                                color: Colors.teal[200]),
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black),
                                           ),
                                         )
                                       ],
@@ -213,21 +214,21 @@ class LoginView extends GetView<LoginController> {
                                   width: 170,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                      primary: Colors.teal[700],
+                                      primary: Colors.white,
                                     ),
                                     onPressed: () =>
                                         Get.offAllNamed(Routes.PHONE),
                                     child: Row(
                                       children: [
-                                        Icon(Icons.phone,
-                                            color: Colors.teal[200]),
+                                        Icon(Icons.phone, color: Colors.black),
                                         Container(
                                           margin: EdgeInsets.only(left: 35),
                                           child: Text(
                                             "Phone",
                                             style: TextStyle(
                                                 fontSize: 20,
-                                                color: Colors.teal[200]),
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black),
                                           ),
                                         )
                                       ],
@@ -247,14 +248,16 @@ class LoginView extends GetView<LoginController> {
                             onPressed: () {},
                             child: Text(
                               "Don’t have an account?",
-                              style: TextStyle(color: Colors.teal[400]),
+                              style: TextStyle(color: Colors.redAccent),
                             )),
                         TextButton(
                             onPressed: () => Get.toNamed("register"),
                             child: Text(
                               "Register",
                               style: TextStyle(
-                                  color: Colors.teal[200], fontSize: 13),
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 13),
                             ))
                       ],
                     )

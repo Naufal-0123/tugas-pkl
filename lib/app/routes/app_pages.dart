@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import 'package:halaqoh/app/modules/check_email/bindings/check_email_binding.dart';
+import 'package:halaqoh/app/modules/check_email/views/check_email_view.dart';
 import 'package:halaqoh/app/modules/create-halaqoh/bindings/create_halaqoh_binding.dart';
 import 'package:halaqoh/app/modules/create-halaqoh/views/create_halaqoh_view.dart';
 import 'package:halaqoh/app/modules/forgot/bindings/forgot_binding.dart';
@@ -18,8 +20,6 @@ import 'package:halaqoh/app/modules/update-halaqoh/bindings/update_halaqoh_bindi
 import 'package:halaqoh/app/modules/update-halaqoh/views/update_halaqoh_view.dart';
 import 'package:halaqoh/app/modules/veify-otp/bindings/veify_otp_binding.dart';
 import 'package:halaqoh/app/modules/veify-otp/views/veify_otp_view.dart';
-import 'package:halaqoh/app/modules/veify/bindings/veify_binding.dart';
-import 'package:halaqoh/app/modules/veify/views/veify_view.dart';
 
 part 'app_routes.dart';
 
@@ -54,11 +54,6 @@ class AppPages {
       page: () => SplashView(),
       binding: SplashBinding(),
     ),
-    // GetPage(
-    //   name: _Paths.VEIFY,
-    //   page: () => VeifyView(),
-    //   binding: VeifyBinding(),
-    // ),
     GetPage(
       name: _Paths.VEIFY_OTP,
       page: () => VeifyOTPView(),
@@ -78,6 +73,11 @@ class AppPages {
       name: _Paths.PHONE,
       page: () => PhoneView(),
       binding: PhoneBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHECK_EMAIL,
+      page: () => CheckEmailView(),
+      binding: CheckEmailBinding(),
     ),
   ];
 }

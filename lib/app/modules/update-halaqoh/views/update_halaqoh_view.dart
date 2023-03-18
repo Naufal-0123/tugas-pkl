@@ -324,12 +324,12 @@ class UpdateHalaqohView extends GetView<UpdateHalaqohController> {
                               data?.id,
                               int.parse(controller.dariAyat.text),
                               int.parse(controller.sampaiAyat.text),
-                              controller.dariSurat.text,
-                              controller.sampaiSurat.text,
+                              controller.surat.value,
+                              controller.surat2.value,
                               controller.namaSantri.text,
                               controller.pengampuHalaqoh.text,
                               controller.tanggalHalaqoh.text,
-                              controller.waktuHalaqoh.text);
+                              controller.waktu.value);
                         },
                         child: Container(
                           width: lebar,
@@ -362,55 +362,4 @@ class UpdateHalaqohView extends GetView<UpdateHalaqohController> {
           ),
         )));
   }
-}
-
-Widget CustomInput({label, controller, obscure, hint, icon, initValue}) {
-  return Column(
-    children: [
-      Container(
-        margin: EdgeInsets.only(bottom: 5),
-        child: Align(
-          alignment: Alignment.centerLeft,
-          child: Text(label,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-        ),
-      ),
-      Container(
-        child: TextFormField(
-            initialValue: initValue,
-            controller: controller,
-            obscureText: obscure,
-            decoration: InputDecoration(
-              labelStyle: TextStyle(
-                fontFamily: "Poppins",
-                color: Colors.teal[400],
-                fontSize: 19,
-              ),
-              hintText: hint,
-              hintStyle: TextStyle(
-                  fontFamily: "Poppins",
-                  color: Colors.teal[400],
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400),
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 18,
-              ),
-              suffixIcon: icon,
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(6),
-                borderSide: BorderSide(color: bgAbu, width: 1),
-                gapPadding: 5,
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(6),
-                borderSide: const BorderSide(
-                    color: Color.fromARGB(255, 27, 27, 27), width: 1),
-                gapPadding: 5,
-              ),
-            )),
-      ),
-    ],
-  );
 }
