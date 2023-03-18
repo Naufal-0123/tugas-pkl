@@ -16,8 +16,7 @@ class MyController extends GetxController {
 }
 
 class CreateHalaqohView extends GetView<CreateHalaqohController> {
-  final MyController myController = Get.put(MyController());
-  final TextEditingController tanggalHalaqoh = TextEditingController();
+  final myController = Get.put(MyController());
   final halaqohA = Get.put(HalaqohControllerController());
   final createC = Get.put(CreateHalaqohController());
   final halaqohB = Get.put(HomeController());
@@ -285,14 +284,14 @@ class CreateHalaqohView extends GetView<CreateHalaqohController> {
                                 showDatePicker(
                                   context: context,
                                   initialDate: myController.selectedDate.value,
-                                  firstDate: DateTime(2020),
+                                  firstDate: DateTime(1980),
                                   lastDate: DateTime(2030),
                                 ).then((newDate) {
                                   if (newDate != null) {
                                     myController.onDateSelected(newDate);
-                                    tanggalHalaqoh.text = myController
-                                        .selectedDate.value
-                                        .toString();
+                                    controller.tanggalHalaqoh.text =
+                                        myController.selectedDate.value
+                                            .toString();
                                   }
                                 });
                               },

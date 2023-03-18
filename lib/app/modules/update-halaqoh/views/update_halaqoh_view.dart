@@ -5,7 +5,16 @@ import 'package:halaqoh/config/warna.dart';
 import '../controllers/update_halaqoh_controller.dart';
 import 'package:halaqoh/app/controllers/halaqoh_controller_controller.dart';
 
+class MyController extends GetxController {
+  var selectedDate = DateTime.now().obs;
+
+  void onDateSelected(DateTime newDate) {
+    selectedDate.value = newDate;
+  }
+}
+
 class UpdateHalaqohView extends GetView<UpdateHalaqohController> {
+  final myController = Get.put(MyController());
   final halaqohA = Get.put(HalaqohControllerController());
   final updateC = Get.put(UpdateHalaqohController());
   final halaqohB = Get.put(HomeController());
@@ -260,8 +269,6 @@ class UpdateHalaqohView extends GetView<UpdateHalaqohController> {
                               controller: controller.tanggalHalaqoh,
                               style: TextStyle(color: Colors.white),
                               cursorColor: Colors.white,
-                              keyboardType: TextInputType.emailAddress,
-                              // ignore: prefer_const_constructors
                               decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
                                     borderSide:
@@ -270,6 +277,22 @@ class UpdateHalaqohView extends GetView<UpdateHalaqohController> {
                                 labelStyle: TextStyle(color: Colors.white),
                                 border: OutlineInputBorder(),
                               ),
+                              readOnly: true,
+                              onTap: () {
+                                showDatePicker(
+                                  context: context,
+                                  initialDate: myController.selectedDate.value,
+                                  firstDate: DateTime(1980),
+                                  lastDate: DateTime(2030),
+                                ).then((newDate) {
+                                  if (newDate != null) {
+                                    myController.onDateSelected(newDate);
+                                    controller.tanggalHalaqoh.text =
+                                        myController.selectedDate.value
+                                            .toString();
+                                  }
+                                });
+                              },
                             ),
                             SizedBox(
                               height: 20,
