@@ -263,6 +263,10 @@ class CreateHalaqohController extends GetxController {
     waktu.value = value;
   }
 
+  changeTanggal(String tanggalMentah) {
+    return tanggalMentah.substring(0, 10);
+  }
+
   final count = 0.obs;
   @override
   void onInit() {

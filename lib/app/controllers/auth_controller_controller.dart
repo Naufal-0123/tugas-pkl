@@ -8,6 +8,7 @@ class AuthControllerController extends GetxController {
   FirebaseAuth auth = FirebaseAuth.instance;
   Stream<User?> streamAuthStatus() => auth.authStateChanges();
   String codeVerify = "";
+  
   login(String emailAddress, String password) async {
     try {
       final credential = await FirebaseAuth.instance
