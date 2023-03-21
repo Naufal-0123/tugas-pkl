@@ -351,7 +351,8 @@ class UpdateHalaqohView extends GetView<UpdateHalaqohController> {
                               controller.surat2.value,
                               controller.namaSantri.text,
                               controller.pengampuHalaqoh.text,
-                              controller.tanggalHalaqoh.text,
+                              controller.changeTanggal(
+                                  controller.tanggalHalaqoh.text),
                               controller.waktu.value);
                         },
                         child: Container(
