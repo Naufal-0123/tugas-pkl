@@ -101,16 +101,24 @@ class HalaqohControllerController extends GetxController {
   deleteData(String id) async {
     try {
       DocumentReference Halaqoh = firestore.collection('Halaqoh').doc(id);
-      await Halaqoh.delete();
-      Get.offAllNamed(Routes.HOME);
       Get.defaultDialog(
-        title: 'Alert',
-        middleText: 'berhasil mendelete data',
-        backgroundColor: Colors.black87,
-        titleStyle: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        middleTextStyle:
-            TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-      );
+          title: 'Are You Sure!',
+          middleText: 'delete this file',
+          backgroundColor: Colors.black87,
+          titleStyle:
+              TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          middleTextStyle:
+              TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          confirm: ElevatedButton(
+              onPressed: () async {
+                await Halaqoh.delete();
+                Get.offAllNamed(Routes.HOME);
+              },
+              child: Text("Yes")),
+          cancel: ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+              onPressed: () => Get.back(),
+              child: Text("No")));
     } catch (e) {
       Get.defaultDialog(title: 'Alert', middleText: 'gagal mendelete data');
       print(e);

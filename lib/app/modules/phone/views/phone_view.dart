@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:halaqoh/app/routes/app_pages.dart';
 
 import '../../../../config/warna.dart';
 import '../../../controllers/auth_controller_controller.dart';
@@ -23,6 +24,17 @@ class PhoneView extends GetView<PhoneController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                InkWell(
+                  onTap: () => Get.toNamed(Routes.LOGIN),
+                  child: Container(
+                      margin: EdgeInsets.only(bottom: 20),
+                      // color: Colors.black,
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                        size: 30,
+                      )),
+                ),
                 Container(
                   height: tinggi * 0.85,
                   child: Column(

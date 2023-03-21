@@ -58,64 +58,6 @@ class UpdateHalaqohView extends GetView<UpdateHalaqohController> {
                               margin: EdgeInsets.only(
                                   bottom: 10, top: 10, right: 330),
                               child: Text(
-                                "Dari Ayat",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
-                              ),
-                            ),
-                            TextFormField(
-                              controller: controller.dariAyat,
-                              style: TextStyle(color: Colors.white),
-                              cursorColor: Colors.white,
-                              keyboardType: TextInputType.emailAddress,
-                              // ignore: prefer_const_constructors
-                              decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Colors.white)),
-                                labelText: "Masukkan Ayat Surah",
-                                labelStyle: TextStyle(color: Colors.white),
-                                border: OutlineInputBorder(),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(
-                                  bottom: 10, top: 10, right: 310),
-                              child: Text(
-                                "Sampai Ayat",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
-                              ),
-                            ),
-                            TextFormField(
-                              controller: controller.sampaiAyat,
-                              style: TextStyle(color: Colors.white),
-                              cursorColor: Colors.white,
-                              keyboardType: TextInputType.emailAddress,
-                              // ignore: prefer_const_constructors
-                              decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Colors.white)),
-                                labelText: "Masukkan Ayat Surah",
-                                labelStyle: TextStyle(color: Colors.white),
-                                border: OutlineInputBorder(),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(
-                                  bottom: 10, top: 10, right: 330),
-                              child: Text(
                                 "Dari Surat",
                                 style: TextStyle(
                                     fontSize: 20,
@@ -191,6 +133,61 @@ class UpdateHalaqohView extends GetView<UpdateHalaqohController> {
                                     fontSize: 18, color: Colors.black),
                                 dropdownColor: Colors.white,
                                 iconEnabledColor: Colors.white,
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(
+                                  bottom: 10, top: 10, right: 330),
+                              child: Text(
+                                "Dari Ayat",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            ),
+                            TextFormField(
+                              controller: controller.dariAyat,
+                              style: TextStyle(color: Colors.white),
+                              cursorColor: Colors.white,
+                              keyboardType: TextInputType.emailAddress,
+                              // ignore: prefer_const_constructors
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
+                                labelText: "Masukkan Ayat Surah",
+                                labelStyle: TextStyle(color: Colors.white),
+                                border: OutlineInputBorder(),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(
+                                  bottom: 10, top: 10, right: 310),
+                              child: Text(
+                                "Sampai Ayat",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            ),
+                            TextFormField(
+                              controller: controller.sampaiAyat,
+                              style: TextStyle(color: Colors.white),
+                              cursorColor: Colors.white,
+                              keyboardType: TextInputType.emailAddress,
+                              // ignore: prefer_const_constructors
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
+                                labelText: "Masukkan Ayat Surah",
+                                labelStyle: TextStyle(color: Colors.white),
+                                border: OutlineInputBorder(),
                               ),
                             ),
                             SizedBox(
@@ -289,7 +286,8 @@ class UpdateHalaqohView extends GetView<UpdateHalaqohController> {
                                     myController.onDateSelected(newDate);
                                     controller.tanggalHalaqoh.text =
                                         myController.selectedDate.value
-                                            .toString();
+                                            .toString()
+                                            .substring(0, 10);
                                   }
                                 });
                               },
