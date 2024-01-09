@@ -8,28 +8,19 @@ class AuthControllerController extends GetxController {
   FirebaseAuth auth = FirebaseAuth.instance;
   Stream<User?> streamAuthStatus() => auth.authStateChanges();
   String codeVerify = "";
-  
+
   login(String emailAddress, String password) async {
     try {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: emailAddress, password: password);
       Get.offAllNamed(Routes.HOME);
-      Get.defaultDialog(
-          title: 'Alert',
-          middleText: 'Anda Berhasil Login',
-          middleTextStyle:
-              TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-          barrierDismissible: true,
-          backgroundColor: Colors.black87,
-          titleStyle:
-              TextStyle(fontWeight: FontWeight.bold, color: Colors.white));
+      Get.snackbar(
+          "Success", "Congratulations, you have successfully logged in");
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        Get.defaultDialog(
-            title: "err", middleText: "No user found for that email.");
+        Get.snackbar("Error", "No user found for that email.");
       } else if (e.code == 'wrong-password') {
-        Get.defaultDialog(
-            title: "err", middleText: "Wrong password provided for that user.");
+        Get.snackbar("Error", "Wrong password provided for that user.");
       }
     }
   }
@@ -61,21 +52,13 @@ class AuthControllerController extends GetxController {
               email: emailAddress, password: password);
       credential.user?.sendEmailVerification();
       Get.offAllNamed(Routes.LOGIN);
-      Get.defaultDialog(
-        title: 'Alert',
-        middleText: 'Anda Berhasil Register',
-        backgroundColor: Colors.black87,
-        titleStyle: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        middleTextStyle:
-            TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-      );
+      Get.snackbar(
+          "Success", "congratulations, you have successfully registered");
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        Get.defaultDialog(
-            title: "err", middleText: "No user found for that email.");
+        Get.snackbar("Error", "No user found for that email.");
       } else if (e.code == 'wrong-password') {
-        Get.defaultDialog(
-            title: "err", middleText: "Wrong password provided for that user.");
+        Get.snackbar("Error", "Wrong password provided for that user.");
       }
     }
   }

@@ -44,16 +44,9 @@ class HalaqohControllerController extends GetxController {
       await Halaqoh.update(halaqohData);
 
       Get.offNamed(Routes.HOME);
-      Get.defaultDialog(
-        title: 'Alert',
-        middleText: 'berhasil mengupdate data',
-        backgroundColor: Colors.black87,
-        titleStyle: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        middleTextStyle:
-            TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-      );
+      Get.snackbar("Success", "updated successfully");
     } catch (e) {
-      Get.defaultDialog(title: 'Alert', middleText: 'gagal mengupdate data');
+      Get.snackbar("Error", "failed to updated");
       print(e);
     }
   }
@@ -83,18 +76,10 @@ class HalaqohControllerController extends GetxController {
       await Halaqoh.add(halaqohData).then((DocumentReference doc) {
         print('DocumentSnapshot added with ID: ${doc.id}');
         Get.offNamed(Routes.HOME);
-        Get.defaultDialog(
-          title: 'Alert',
-          middleText: 'berhasil menambahkan data',
-          backgroundColor: Colors.black87,
-          titleStyle:
-              TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-          middleTextStyle:
-              TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        );
+        Get.snackbar("Success", "created successfully");
       });
     } catch (e) {
-      Get.defaultDialog(title: 'Alert', middleText: 'gagal menambahkan data');
+      Get.snackbar("Error", "failed to created");
     }
   }
 
@@ -120,7 +105,7 @@ class HalaqohControllerController extends GetxController {
               onPressed: () => Get.back(),
               child: Text("No")));
     } catch (e) {
-      Get.defaultDialog(title: 'Alert', middleText: 'gagal mendelete data');
+      Get.snackbar("Error", "failed to delete");
       print(e);
     }
   }
